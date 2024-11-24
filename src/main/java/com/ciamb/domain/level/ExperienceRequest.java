@@ -1,4 +1,4 @@
-package com.ciamb.domain.model.level;
+package com.ciamb.domain.level;
 
 public class ExperienceRequest {
     private Integer experience;

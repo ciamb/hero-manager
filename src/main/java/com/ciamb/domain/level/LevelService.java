@@ -1,16 +1,15 @@
-package com.ciamb.domain.model.level;
+package com.ciamb.domain.level;
 
 import java.util.logging.Logger;
 
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class LevelServiceImpl implements LevelService {
+public class LevelService {
     private final Logger log = Logger.getLogger(getClass().getSimpleName());
 
     private static final int MULTIPLIER = 33;
 
-    @Override
     public void addExperience(Level level, int experience) {
         if (experience < 0) {
             throw new IllegalArgumentException("You can't earn negative experience!");
@@ -34,5 +33,4 @@ public class LevelServiceImpl implements LevelService {
         log.info(() -> "level up!! new level: %d".formatted(level.getCurrentLevel()));
         level.setExperienceToNextLevel(calculateExperienceForNextLevel(level.getCurrentLevel()));
     }
-
 }
